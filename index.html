@@ -154,31 +154,38 @@
 
     </div>
 
-    <script>
-        const pupils = document.querySelectorAll('.pupil');
-        const lennyFace = document.querySelector('.lenny-face');
+     <script>
+					  document.addEventListener("DOMContentLoaded", () => {					  document.addEventListener("DOMContentLoaded", () => {
+					  // Безопасное объявление через var убирает конфликты "already been declared"
+					  var pupils = document.querySelectorAll(".pupil");
+					  var lennyFace = document.querySelector(".lenny-face");
 
-        window.addEventListener('mousemove', (e) => {
-            // Проверка по ширине окна браузера напрямую в JS
-            if (window.innerWidth <= 720) return;
+					  window.addEventListener("mousemove", (e) => {
+					  // Проверяем, что элементы существуют на странице, чтобы избежать ошибок "is not defined"
+					  if (lennyFace && pupils.length > 0) {
+					  // Проверка: если лицо скрыто ховером, не пересчитываем координаты зрачков
+					  if (getComputedStyle(lennyFace).visibility !== "hidden") {
+					  pupils.forEach((pupil) => {
+					  const rect = pupil.getBoundingClientRect();
+					  const pupilX = rect.left + rect.width / 2;
+					  const pupilY = rect.top + rect.height / 2;
 
-            if (getComputedStyle(lennyFace).display !== 'none' && getComputedStyle(lennyFace).visibility !== 'hidden') {
-                pupils.forEach(pupil => {
-                    const rect = pupil.getBoundingClientRect();
-                    const pupilX = rect.left + rect.width / 2;
-                    const pupilY = rect.top + rect.height / 2;
+					  const angle = Math.atan2(
+					  e.clientY - pupilY,
+					  e.clientX - pupilX,
+					  );
+					  const maxDistance = 3; /* Ваша дистанция хода зрачка */
 
-                    const angle = Math.atan2(e.clientY - pupilY, e.clientX - pupilX);
-                    const maxDistance = 3;
+					  const moveX = Math.cos(angle) * maxDistance;
+					  const moveY = Math.sin(angle) * maxDistance;
 
-                    const moveX = Math.cos(angle) * maxDistance;
-                    const moveY = Math.sin(angle) * maxDistance;
-
-                    pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                });
-            }
-        });
-    </script>
+					  pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+					  });
+					  }
+					  }
+					  });
+					  });
+				  </script>
 
 </div></h1></div><div data-reveal="" class="w-element c1t1ky9i c1sesscl c9y978x cs6kyoq c1bk30av c12z4sws crtfhpm ctn2de2 c1w0f9rl c1ijy4jg c14mz0w7 c7565xs"><a type="button" href="https://www.google.com/" class="w-element chqwizw c1dbhjn4 cttdk6k c15tuz05 cic10qx c1i0y4jr c1o1oanr c1uj8myn ctrqbiw ciwe2ci c1yovmgn c1ffxkx7 c75s3ps ciuyspz cw7re8b c1t1ky9i c9y978x c1h3h4ca coo2v9f c1bblol2 crkq6wa clbpz92 c3ntk31 c4ea4e6 cnpmm9y c1uspl8d c1a4g5eq cb7tjgb c11bfe8v c16o0cst c1hoan7r"><img class="w-image cbo0a7t c58loiw c1i0y4jr c10k4pw5 c125iaj9" alt="" width="24" height="24" sizes="100vw" srcSet="./assets/tg_black_UMqRFE3bOfBt2wZt4HQ1Q.svg 16w, ./assets/tg_black_UMqRFE3bOfBt2wZt4HQ1Q.svg 32w, ./assets/tg_black_UMqRFE3bOfBt2wZt4HQ1Q.svg 48w" src="./assets/tg_black_UMqRFE3bOfBt2wZt4HQ1Q.svg" decoding="async" loading="lazy"/><span class="w-element cbgfy19 cjmqefl c5bqngv cfky18h c1xb78yf cee4xb8 c1hoan7r">Написать мне</span></a><div class="w-element c1t1ky9i c1sesscl c9y978x cs6kyoq cf9kvnj cdlt2zp c1ghyfie c9uu1mj c1u8skea"><div class="w-element c1t1ky9i c11f31e3 c1sesscl c1ghyfie c9uu1mj c9y978x c1h3h4ca c12jobch cn43n1h c1ss0qyd c1bf3gbv c93layf ctdclm5 c95fmx9 c1wz28sq"><div class="w-element clh4sgj c5qf0q2 crvcavn ch88x4d c3bqno0 cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c11f31e3 cbyw8y2 c1hfv5o0 cv9ty0f cefdn9z"></div><div class="w-element cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c11f31e3 cemq7jg clh4sgj ch04zb6 c1bealef cclut8i cu8pon3 c1hfv5o0 pulse-wave
 "></div><div class="w-element cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c18m3nax clh4sgj c30mykz ch04zb6 c1bealef cclut8i cu8pon3 c1hfv5o0 pulse-wave wave-delayed
