@@ -4,127 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интерактивный Каомодзи</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            user-select: none;
-        }
+     <style>
+                  body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color: #f0f2f5;
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    user-select: none;
+                  }
 
-        /* ГЛАВНЫЙ КОНТЕЙНЕР */
-        .kaomoji-wrapper {
-            position: relative;
-            cursor: default;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
+                  /* ГЛАВНЫЙ КОНТЕЙНЕР (Обертка для эффекта ховера) */
+                  .kaomoji-wrapper {
+                    position: relative;
+                    cursor: default;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
 
-        /* Контейнер для лица */
-        .lenny-face {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            color: #1a1a1a;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.1s ease, visibility 0.2s;
-        }
+                  /* Контейнер для всего лица с вашими настройками */
+                  .lenny-face {                  .lenny-face {
+                    position: relative; /* Важно для абсолютного позиционирования рта */
+                    display: inline-flex;
+                    align-items: center;
+                    color: #1a1a1a;
+                    opacity: 1;
+                    visibility: visible;
+                    transition:
+                      opacity 0.1s ease,
+                      visibility 0.2s;
+                  }
 
-        /* ТЕКСТ ПРИ НАВЕДЕНИИ */
-        .hover-text {
-            position: absolute;
-            color: #1a1a1a;
-            opacity: 0;
-            visibility: hidden;
-            white-space: nowrap;
-            transition: opacity 0.1s ease, visibility 0.2s;
-        }
+                  /* ВАШ ТЕКСТ ПРИ НАВЕДЕНИИ */
+                  .hover-text {
+                    position: absolute;
+                    color: #1a1a1a; /* Цвет изменен на черный */
+                    opacity: 0;
+                    visibility: hidden;
+                    white-space: nowrap;
+                    transition:
+                      opacity 0.1s ease,
+                      visibility 0.2s;
+                  }
 
-        /* HOVER-ЛОГИКА (Для ПК) */
-        .kaomoji-wrapper:hover .lenny-face {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .kaomoji-wrapper:hover .hover-text {
-            opacity: 1;
-            visibility: visible;
-        }
+                  /* ЛОГИКА СМЕНЫ ПРИ НАВЕДЕНИИ (HOVER) */
+                  .kaomoji-wrapper:hover .lenny-face {                  .kaomoji-wrapper:hover .lenny-face {
+                    opacity: 0;
+                    visibility: hidden;
+                  }
+                  .kaomoji-wrapper:hover .hover-text {
+                    opacity: 1;
+                    visibility: visible;
+                  }
 
-        /* ЧИСЛОВЫЕ НАСТРОЙКИ ВЕРСТКИ (Для ПК) */
-        .eye-container {
-            position: relative;
-            display: inline-block;
-            width: 32px;  
-            height: 38px; 
-        }
+                  /* --- ВАШИ ЧИСЛОВЫЕ НАСТРОЙКИ ИЗ ПРИМЕРА --- */
+                  .eye-container {
+                    position: relative;
+                    display: inline-block;
+                    width: 32px;
+                    height: 38px;
+                  }
 
-        .brow {
-            position: absolute;
-            left: 14px; 
-            top: 0px;   
-            line-height: 1;
-        }
+                  .brow {
+                    position: absolute;
+                    left: 14px;
+                    top: 0px;
+                    line-height: 1;
+                  }
 
-        .pupil {
-            position: absolute;
-            left: 18px; 
-            top: 0px;
-            line-height: 1;
-            transition: transform 0.05s ease-out;
-        }
+                  .pupil {
+                    position: absolute;
+                    left: 18px;
+                    top: 0px;
+                    line-height: 1;
+                    transition: transform 0.05s ease-out;
+                  }
 
-        .center-space {
-            display: inline-block;
-            width: 24px; 
-            height: 1px;
-        }
+                  .center-space {
+                    display: inline-block;
+                    width: 24px;
+                    height: 1px;
+                  }
 
-        .mouth-nose {
-            position: absolute;
-            left: 56px;  
-            top: 0px;   
-            line-height: 1;
-            white-space: nowrap;
-        }
-
-        /* ЖЕСТКАЯ ПОДМЕНА И ОБНУЛЕНИЕ ОТСТУПОВ (до 720px включительно) */
-        @media screen and (max-width: 720px), screen and (max-device-width: 720px) {
-            /* Полностью вырезаем физическое присутствие элементов */
-            .kaomoji-wrapper .lenny-face,
-            .kaomoji-wrapper .hover-text,
-            .kaomoji-wrapper .lenny-face * {
-                display: none !important;
-                width: 0 !important;
-                height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none !important;
-            }
-
-            /* Создаем один чистый текст без промежутков */
-            .kaomoji-wrapper::after {
-                content: "( ͡° ͜ʖ ͡°)" !important;
-                display: inline-block !important;
-                font-family: inherit !important;
-                font-size: inherit !important;
-                color: #1a1a1a !important;
-                white-space: nowrap !important;
-                position: static !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                width: auto !important;
-                height: auto !important;
-            }
-        }
-    </style>
+                  .mouth-nose {
+                    position: absolute;
+                    left: 56px;
+                    top: 0px;
+                    line-height: 1;
+                    white-space: nowrap;
+                  }
+                </style>
 
 
 
