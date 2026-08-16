@@ -50,7 +50,7 @@
   /* Dieter: place him over the final part of "лучше" on the 360px base.
      Values are fluid so the composition scales with the phone width. */
   #values {
-    left: 62.5vw !important;
+    left: 45vw !important;
     width: 44.444vw !important;
     bottom: -12.5vw !important;
     margin-left: 0 !important;
