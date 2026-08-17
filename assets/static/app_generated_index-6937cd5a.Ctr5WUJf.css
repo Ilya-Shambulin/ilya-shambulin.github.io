@@ -40,20 +40,27 @@
     min-height: 0 !important;
   }
 
-  /* Main page: contact = 40% viewport height. */
+  /* Main page: contact = 24% viewport height on mobile. */
   #contact.czr15qi,
   .czr15qi:has(> #contact) {
-    height: 40svh !important;
+    height: 24svh !important;
     min-height: 0 !important;
   }
 
-  /* Dieter: place him over the final part of "лучше" on the 360px base.
-     Values are fluid so the composition scales with the phone width. */
+  /* Dieter: fixed mobile composition requested for the 360px design base. */
   #values {
-    left: 62.5vw !important;
-    width: 44.444vw !important;
-    bottom: -12.5vw !important;
-    margin-left: 0 !important;
+    left: 161px !important;
+    width: 160px !important;
+    bottom: -45px !important;
+    margin-left: 10px !important;
+  }
+
+  /* Article text: keep paragraphs that missed the mobile 360px width
+     in the same constrained column as the other text blocks. */
+  p.cluq3ws {
+    width: min(360px, calc(100vw - 24px)) !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Prevent media/embed blocks from forcing horizontal overflow. */
