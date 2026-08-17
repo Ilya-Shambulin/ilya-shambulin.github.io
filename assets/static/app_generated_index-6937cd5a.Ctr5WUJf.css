@@ -101,3 +101,85 @@
     bottom: calc(-12.5vw - 12px) !important;
   }
 }
+
+
+/* =========================================================
+   PORTFOLIO MOBILE PATCH v4 — layout cleanup
+   ========================================================= */
+@media all and (max-width: 800px) {
+  /* Main page: prevent a 100%-height inner wrapper from becoming
+     an independently scrollable canvas. */
+  body#mobile-outer {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  #mobile-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+
+  /* Keep the first screen from creating an inner vertical scroll. */
+  #intro.c1dt4toh,
+  #intro.c1dt4toh.cgdvsya {
+    height: 60svh !important;
+    min-height: 0 !important;
+    max-height: 60svh !important;
+    overflow: visible !important;
+  }
+
+  /* Dieter: restore the original mobile positioning from the first
+     repaired version rather than the later fluid experiment. */
+  #values {
+    left: 161px !important;
+    top: auto !important;
+    width: 160px !important;
+    bottom: -45px !important;
+    margin-left: 10px !important;
+    transform: none !important;
+  }
+}
+
+/* Article pages: restore the natural mobile content width.
+   The previous 360px cap was making all project pages too narrow. */
+@media all and (max-width: 800px) {
+  body.article-mobile-offset {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding-top: 60px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-mobile-offset .c12pndbt,
+  body.article-mobile-offset .c1hwq8cc,
+  body.article-mobile-offset .cbgt5od {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-mobile-offset .crjcrep {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-mobile-offset .cluq3ws,
+  body.article-mobile-offset .cgxs7b2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
