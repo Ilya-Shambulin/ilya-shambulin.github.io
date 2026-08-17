@@ -75,3 +75,29 @@
     box-sizing: border-box !important;
   }
 }
+
+/* =========================================================
+   PORTFOLIO MOBILE PATCH v3 — 2026-08
+   ========================================================= */
+@media all and (max-width: 800px) {
+  /* Long article paragraphs: use the same mobile width as the
+     other content blocks instead of the desktop 660px width. */
+  .cluq3ws {
+    width: 100% !important;
+    max-width: 360px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Contact: compact mobile section. */
+  #contact.czr15qi,
+  .czr15qi:has(> #contact) {
+    height: 24svh !important;
+    min-height: 0 !important;
+  }
+
+  /* Dieter: 80px left and 12px down from the previous mobile position. */
+  #values {
+    left: calc(45vw - 80px) !important;
+    bottom: calc(-12.5vw - 12px) !important;
+  }
+}
