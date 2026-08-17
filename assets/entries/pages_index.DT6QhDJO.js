@@ -154,7 +154,31 @@ import{j as n,d as a,U as t,g as e,r as d,a as r,i as o,R as b,b as f,P as u,c a
 
     </div>
 
-    <script>/* Lennyface logic is loaded from assets/lennyface.js */<\/script>
+    <script>
+        const pupils = document.querySelectorAll('.pupil');
+        const lennyFace = document.querySelector('.lenny-face');
+
+        window.addEventListener('mousemove', (e) => {
+            // Проверка по ширине окна браузера напрямую в JS
+            if (window.innerWidth <= 720) return;
+
+            if (getComputedStyle(lennyFace).display !== 'none' && getComputedStyle(lennyFace).visibility !== 'hidden') {
+                pupils.forEach(pupil => {
+                    const rect = pupil.getBoundingClientRect();
+                    const pupilX = rect.left + rect.width / 2;
+                    const pupilY = rect.top + rect.height / 2;
+
+                    const angle = Math.atan2(e.clientY - pupilY, e.clientX - pupilX);
+                    const maxDistance = 3;
+
+                    const moveX = Math.cos(angle) * maxDistance;
+                    const moveY = Math.sin(angle) * maxDistance;
+
+                    pupil.style.transform = \`translate(\${moveX}px, \${moveY}px)\`;
+                });
+            }
+        });
+    <\/script>
 
 `,className:"w-html-embed c15lq6mx c91d8ro c1jcpumz c16z13ob cjs4ars cxq86i1 c385xy3"})]})]}),n.jsxs("div",{"data-reveal":"",className:"w-element c1t1ky9i c1sesscl c9y978x cs6kyoq c1bk30av c12z4sws c12pndbt c1gsrl4f ci6t33 c1ijy4jg c1aqeu73 chp7ggd c1edtw69 c1othdyf c1tr8yp7 c1ltr0l6",children:[n.jsxs(e,{type:"button",href:"https://t.me/IlyaShamb",className:"w-element chqwizw c1dbhjn4 cttdk6k c15tuz05 cic10qx c1i0y4jr c1o1oanr c1uj8myn ctrqbiw ciwe2ci c1yovmgn c1ffxkx7 c75s3ps ciuyspz cw7re8b c1t1ky9i c9y978x c1h3h4ca coo2v9f c1bblol2 crkq6wa clbpz92 c3ntk31 c4ea4e6 cnpmm9y c1uspl8d c1a4g5eq cb7tjgb c11bfe8v c16o0cst c1hoan7r",children:[n.jsx(a,{src:"/assets/tg_black_UMqRFE3bOfBt2wZt4HQ1Q.svg",width:24,height:24,alt:"",className:"w-image cbo0a7t c58loiw c1i0y4jr c1kzg60b c7hi520"}),n.jsx("span",{className:"w-element cbgfy19 cjmqefl c5bqngv cfky18h c1xb78yf cee4xb8 c1hoan7r cw2v8py",children:"Написать мне"})]}),n.jsxs("div",{className:"w-element c1t1ky9i c1sesscl c9y978x cs6kyoq cf9kvnj cdlt2zp c1ghyfie c9uu1mj c13tewi9 ci6t33 c1ijy4jg c12pndbt c14mz0w7 c7565xs",children:[n.jsxs("div",{className:"w-element c1t1ky9i c11f31e3 c1sesscl c1ghyfie c9uu1mj c9y978x c1h3h4ca c12jobch cn43n1h c1ss0qyd c1bf3gbv c93layf ctdclm5 c95fmx9 c1wz28sq",children:[n.jsx("div",{className:"w-element clh4sgj c5qf0q2 crvcavn ch88x4d c3bqno0 cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c11f31e3 cbyw8y2 c1hfv5o0 cv9ty0f cefdn9z"}),n.jsx("div",{className:`w-element cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c11f31e3 cemq7jg clh4sgj ch04zb6 c1bealef cclut8i cu8pon3 c1hfv5o0 pulse-wave
 `}),n.jsx("div",{className:`w-element cyevpe8 cnudor3 c1ffxkx7 c75s3ps ciuyspz cw7re8b c18m3nax clh4sgj c30mykz ch04zb6 c1bealef cclut8i cu8pon3 c1hfv5o0 pulse-wave wave-delayed

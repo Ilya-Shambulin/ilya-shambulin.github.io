@@ -1,0 +1,87 @@
+/* Clean mobile overrides for the original Webstudio export */
+@media screen and (max-width: 765px) {
+  html, body {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  body#mobile-outer {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  /* HOME: centered, never touching the viewport edge; 4px is the minimum gutter at 360px */
+  body#mobile-outer {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #mobile-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  #intro {
+    height: 60svh !important;
+    min-height: 0 !important;
+  }
+
+  #contact {
+    height: 24svh !important;
+    min-height: 0 !important;
+  }
+
+  /* Dieter: exact original mobile geometry from the clean Webstudio export */
+  #values {
+    left: 161px !important;
+    width: 160px !important;
+    bottom: -45px !important;
+    margin-left: 10px !important;
+  }
+
+  /* Media must stay inside the viewport */
+  #mobile-wrapper img,
+  #mobile-wrapper video,
+  #mobile-wrapper iframe,
+  #mobile-wrapper svg {
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  /* Article pages: full-width mobile canvas with a safe 60px header clearance */
+  body#mobile-outer.article-page-v7 {
+    padding-top: 60px !important;
+  }
+  body#mobile-outer.article-page-v7 #mobile-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+  body#mobile-outer.article-page-v7 .c12pndbt,
+  body#mobile-outer.article-page-v7 .cluq3ws,
+  body#mobile-outer.article-page-v7 .crjcrep,
+  body#mobile-outer.article-page-v7 .c10upm9x {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  body#mobile-outer.article-page-v7 .cluq3ws {
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+}
