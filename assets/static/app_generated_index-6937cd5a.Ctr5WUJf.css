@@ -183,3 +183,53 @@
     box-sizing: border-box !important;
   }
 }
+
+/* =========================================================
+   PORTFOLIO MOBILE PATCH v5 — centered gutters + full-width articles
+   ========================================================= */
+@media all and (max-width: 800px) {
+  /* Main page: keep a minimum 4px gutter on both sides, but
+     center the whole composition as the viewport grows. */
+  #mobile-wrapper {
+    width: calc(100% - 8px) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Article pages: the exported 360/390px constraints were
+     making the whole article narrow. Make the outer canvas
+     fill the viewport while keeping the same 4px minimum gutter. */
+  body.article-mobile-offset > .crjcrep {
+    width: calc(100% - 8px) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-mobile-offset .c10upm9x,
+  body.article-mobile-offset .crjcrep {
+    min-width: 0 !important;
+  }
+
+  body.article-mobile-offset .c12pndbt {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-mobile-offset .cluq3ws,
+  body.article-mobile-offset .cgxs7b2 {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
