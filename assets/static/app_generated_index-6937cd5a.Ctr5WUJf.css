@@ -82,3 +82,13 @@
     box-sizing: border-box !important;
   }
 }
+
+/* Prevent the mobile canvas/wrapper from becoming a nested vertical scroller.
+   overflow-x:hidden makes overflow-y:visible compute to auto; clip avoids that. */
+@media all and (max-width: 800px) {
+  #mobile-outer,
+  #mobile-wrapper {
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+  }
+}
